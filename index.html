@@ -14,11 +14,11 @@
     <script src="controllers/questionnaireController.js"></script>
 </head>
 <body>    
-    <div ng-controller="questionnaireController" class="">
+    <div ng-controller="questionnaireController" class="questionnaireform">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <p>Em que posição do time você joga?</p>
-                <p>Em uma escala de 0 a 10 avalia o seu conhecimento nas ferramentas abaixo:</p>
+                <p>Em uma escala de 0 a 10 avalie o seu conhecimento nas ferramentas abaixo:</p>
             </div>
             <div class="panel-body">
                 <form role="form" class="form-inline" ng-submit="submit()">
@@ -30,16 +30,15 @@
                         <label for="email">Email:</label>
                         <input type="email" class="form-control" id="email" placeholder="exemplo@...">
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="submit" class="btn btn-default">Enviar</button>
+                    <div ng-repeat="tec in tecniches" class="listTecniches">
+                        <label style="margin-right: 5px; width: 200px">{{tec.name}}</label>
+                        <input type="range" min="0" max="10" class="" ng-model="tec.value" style="margin-right: 5px; width: 200px" />
+                        <span class="badge">{{tec.value}}</span>
+                    </div>
                 </form>
-                <div ng-repeat="tec in tecniches" class="listTecniches">
-                    <label style="margin-right: 5px">{{tec.name}}</label>
-                    <input type="range" min="0" max="10" class="" ng-model="tec.value" style="margin-right: 5px" />
-                    <span class="badge">{{tec.value}}</span>
-                </div>
             </div>
         </div>
-        
     </div>
 </body>
 </html>

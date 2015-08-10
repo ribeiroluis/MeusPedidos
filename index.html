@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="meusPedidos">
+<head>
+    <title>Meus pedidos: em que posição do time você joga</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="css/app.css" rel="stylesheet" />
+    <script src="js/jquery-2.1.4.min.js"></script>    
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    
+    <script src="app.js"></script>    
+    
+    <script src="controllers/questionnaireController.js"></script>
+</head>
+<body>    
+    <div ng-controller="questionnaireController" class="">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <p>Em que posição do time você joga?</p>
+                <p>Em uma escala de 0 a 10 avalia o seu conhecimento nas ferramentas abaixo:</p>
+            </div>
+            <div class="panel-body">
+                <form role="form" class="form-inline" ng-submit="submit()">
+                    <div class="form-group">
+                        <label for="name">Nome:</label>
+                        <input type="text" class="form-control" id="name" placeholder="nome...">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="exemplo@...">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <div ng-repeat="tec in tecniches" class="listTecniches">
+                    <label style="margin-right: 5px">{{tec.name}}</label>
+                    <input type="range" min="0" max="10" class="" ng-model="tec.value" style="margin-right: 5px" />
+                    <span class="badge">{{tec.value}}</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

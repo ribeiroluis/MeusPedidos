@@ -16,9 +16,13 @@
                 return e;
             }           
            });
-        habilitys.each(function(e){
+        habilitys.forEach(function(e){
+            if(e.name == "")
+            
+            
+            
             console.log(e);
-        });
+            });
       
         
         //alert('test');

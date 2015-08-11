@@ -12,13 +12,13 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse applica
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'xx@xx.com',
-        pass: 'xx'
+        user: 'juanbondbr@gmail.com',
+        pass: '..'
     }
 });
 var mailOptions = {
-    from: 'Fred Foo ✔ <xx@xx.com>', // sender address
-    to: 'xx@xx.com', // list of receivers
+    from: 'Luis Ribeiro ✔ <juanbondbr@gmail.com>', // sender address
+    to: 'ribeiro.luis@hotmail.com', // list of receivers
     subject: 'Hello ✔', // Subject line
     text: 'Hello world ✔', // plaintext body
     html: '<b>Hello world ✔</b>' // html body
@@ -37,13 +37,10 @@ app.get('/get', function (req, res) {
 app.post('/sendEmail', function (req, res) {
   transporter.sendMail(mailOptions, function(error, info){
     if(error){
-        return console.log(error);
+        return console.error(error);
     }
-    console.log('Message sent: ' + info.response);
-
-});
-  
-  
+    console.info('Message sent: ' + info.response);   
+});  
   console.log("post");
   res.send('POST request to the homepage');
 });

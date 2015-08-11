@@ -24,9 +24,6 @@ var mailOptions = {
     html: '<b>Hello world ✔</b>' // html body
 };
 
-
-
-
 // GET method route
 app.get('/get', function (req, res) {
   console.log("get");
@@ -37,12 +34,12 @@ app.get('/get', function (req, res) {
 app.post('/sendEmail', function (req, res) {
   transporter.sendMail(mailOptions, function(error, info){
     if(error){
+        res.status(500).send('Something broke!');
         return console.error(error);
     }
+    res.status(200).send('Email sent OK!');
     console.info('Message sent: ' + info.response);   
-});  
-  console.log("post");
-  res.send('POST request to the homepage');
+});
 });
 
 app.listen(port);

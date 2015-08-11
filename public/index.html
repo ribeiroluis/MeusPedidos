@@ -25,7 +25,7 @@
                     <form role="form" class="form-inline" ng-submit="submit()">
                         <div class="form-group">
                             <label for="name">Nome:</label>
-                            <input type="text" class="form-control" id="name" placeholder="nome..." required="requ">
+                            <input type="text" class="form-control" id="name" placeholder="nome...">
                         </div>
                         <div class="form-group">
                             <label for="email">Email:</label>
@@ -33,7 +33,7 @@
                         </div>
                         <button type="submit" class="btn btn-default">Enviar</button>
                         <div ng-repeat="group in techniques" class="listTechniques">                            
-                            <div ng-repeat="tec in group.techniques">
+                            <div ng-repeat="tec in group">
                                 <label style="margin-right: 5px; width: 200px">{{tec.name}}</label>
                                 <input type="range" min="0" max="10" class="" ng-model="tec.value" style="margin-right: 5px; width: 200px"
                                 />

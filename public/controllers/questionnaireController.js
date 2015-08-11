@@ -1,4 +1,4 @@
-﻿myApp.controller('questionnaireController', ['$scope', function ($scope) {
+﻿myApp.controller('questionnaireController', ['$scope', '$http', function ($scope, $http) {
     $scope.techniques = [
         {
             group: "FronEnd",
@@ -15,18 +15,22 @@
 
 
     $scope.submit = function () {
-        var habilitys = this.tecniches.filter(function (e) {
-            if (e.value >= 7) {
-                return e;
-            }
-        });
-        habilitys.forEach(function (e) {
-            if (e.name == "")
-
-
-
-                console.log(e);
-        });
+        // var habilitys = this.tecniches.filter(function (e) {
+        //     if (e.value >= 7) {
+        //         return e;
+        //     }
+        // });
+        
+        $http.get('/get').success(function(data) {
+			console.info('info: ' + data);
+		}).error(function(data) {
+			console.log('Error: ' + data);
+		});
+        $http.post('/sendEmail', this.techniques).success(function(data) {
+				console.log(data);
+			}).error(function(data) {
+				console.log('Error: ' + data);
+			});
       
         
         //alert('test');
@@ -34,7 +38,7 @@
         //          + "&subject=" + escape("This is my subject")
         //          + "&body=" + escape("This is my body")
         // ;
-        window.location.href = link;
+        //window.location.href = link;
     }
 
 

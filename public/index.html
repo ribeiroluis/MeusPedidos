@@ -6,8 +6,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" />
         <link href="css/app.css" rel="stylesheet" />
         <script src="js/jquery-2.1.4.min.js"></script>
-        <script src="js/spin.min.js"></script>
-        <script src="js/utilsDom.js"></script>
+        <script src="js/spin.min.js"></script>        
         <script src="js/bootstrap.min.js"></script>
         <script src="js/angular.min.js"></script>
         <script src="app.js"></script>
@@ -25,14 +24,16 @@
                     <form role="form" class="form-inline" ng-submit="submit()">
                         <div class="form-group">
                             <label for="name">Nome:</label>
-                            <input type="text" class="form-control" id="name" placeholder="nome..." ng-model="candidateInformation.name" required="">
+                            <input type="text" class="form-control" id="name" placeholder="nome..." ng-model="candidateInformation.name"
+                            required="">
                         </div>
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input type="email" class="form-control" id="email" placeholder="exemplo@..." ng-model="candidateInformation.email" required="">
+                            <input type="email" class="form-control" id="email" placeholder="exemplo@..." ng-model="candidateInformation.email"
+                            required="">
                         </div>
-                        <button type="submit" class="btn btn-default">Enviar</button>
-                        <div ng-repeat="group in techniques" class="listTechniques">                            
+                        <button type="submit" class="btn btn-default" data-loading-text="Enviando..." autocomplete="off" id="submitButton">Enviar</button>
+                        <div ng-repeat="group in techniques" class="listTechniques">
                             <div ng-repeat="tec in group.techniques">
                                 <label style="margin-right: 5px; width: 200px">{{tec.name}}</label>
                                 <input type="range" min="0" max="10" class="" ng-model="tec.value" style="margin-right: 5px; width: 200px"
@@ -43,8 +44,8 @@
                     </form>
                 </div>
             </div>
+            <div id="loading"></div>
         </div>
-        <div id="loading"></div>
     </body>
-            
+
 </html>

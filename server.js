@@ -9,11 +9,15 @@ app.use(bodyParser.urlencoded({ 'extended': 'true' })); 		// parse application/x
 app.use(bodyParser.json()); 									// parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 
+//var userLogin = prompt("Please enter your login");
+//var userPassword = prompt("Please enter your password");
+
+
 var transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: '@gmail.com',
-            pass: ''
+            user: 'juanbondbr@gmail.com',
+            pass: 'Alice2011'
         }
     });
 
@@ -26,7 +30,7 @@ app.get('/get', function (req, res) {
 // POST method route
 app.post('/sendEmail', function (req, res) {
     var mailOptions = {
-        from: 'Luis Ribeiro <@gmail.com>', // sender address
+        from: 'Luis Ribeiro <juanbondbr@gmail.com>', // sender address
         to: req.body.email, // list of receivers
         subject: req.body.subject, // Subject line
         text: req.body.emailText, // plaintext body

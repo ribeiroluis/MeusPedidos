@@ -15,6 +15,8 @@
     
     <body>
         <div ng-controller="questionnaireController" class="questionnaireform">
+            <div class="alert alert-success" role="alert" id="successAlert" style="display: none">Obrigado por se candidatar.</div>
+            <div class="alert alert-danger" role="alert" id="erorAlert" style="display: none">:( - Ops, algum erro ocorreu </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <p>Em que posição do time você joga?</p>
@@ -43,8 +45,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
-            <div id="loading"></div>
+            </div>            
         </div>
     </body>
 

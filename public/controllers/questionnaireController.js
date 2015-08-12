@@ -69,12 +69,21 @@ myApp.controller('questionnaireController', ['$scope', '$http', function ($scope
                 sendEmail(emailsToSent.pop());
             }else{
                 $btn.button('reset');
+                $("#successAlert").show();
+                setTimeout(function() {
+                    $("#successAlert").hide();
+                }, 3000);                
             }
         }).error(function (data) {
             console.error('Error: ' + data);
+            $("#errorAlert").show();
+            setTimeout(function() {
+                $("#errorAlert").hide();
+            }, 3000);
             $btn.button('reset');
         });            
         } catch (error) {
+            $("#errorAlert").show();
             console.error(error);
         } 
     }
